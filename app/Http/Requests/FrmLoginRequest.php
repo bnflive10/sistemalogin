@@ -10,7 +10,18 @@ class FrmLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'text_usuario' => 'required|email',
+            'text_senha' => 'required|min:3|max:20'
+        ];
+
+    }
+    public function messages(){
+        return[
+            'text_usuario.required' => 'O usuario é de preenchimento obrigatorio',
+            'text_usuario.email' => 'Verifique o formato do email',
+            'text_senha.required' => 'senha é obrigatória',
+            'text_senha.min' => 'A senha tem que ter no minimo :min caracteres.',
+            'text_senha.max' => 'A senha tem que ter no maximo :max caracteres.'
         ];
     }
 }

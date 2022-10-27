@@ -18,3 +18,8 @@ Route::get('/', [Main::class, 'index'])->name('index');
 Route::get('login', [Main::class, 'login'])->name('login');
 Route::post('/login_submit', [Main::class, 'login_submit'])->name('login_submit');
 Route::get('temp',[Main::class, 'temp']);
+Route::get('/home',[Main::class, 'home'])->name('home');
+Route::get('/logout',function(){
+    session()->forget('usuario');
+    return redirect()->route('index');
+})->name('logout');
